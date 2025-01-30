@@ -8,7 +8,7 @@ Devido a crescente demanda de acessos e compras que o e-commerce fictício "Fast
 
 Abaixo é possível visualizar os recursos da infraestrutura atual:
 
-<imagem>
+![arquitetura_atual](arq_on-premisse.png)
 
 - 01 servidor para Banco de Dados Mysql (500GB de dados, 10Gb de RAM, 3 Core CPU);
 - 01 servidor para a aplicação utilizando REACT – frontend (5GB de dados, 2Gb de RAM, 1 Core CPU);
@@ -39,7 +39,7 @@ No diagrama iremos planejar, por um lado, como serão feitas as conexões com o 
     - Estimar custos através da **AWS Pricing Calculator**.
 
 * Qual o diagrama da infraestrutura na AWS?
-<imagem>
+![diagrama_de_migracao](migracao.png)
 
 * Como serão garantidos os requisitos de Segurança?
     - **AWS Regional Service API Endpoint Access**:
@@ -49,7 +49,9 @@ No diagrama iremos planejar, por um lado, como serão feitas as conexões com o 
     - **Backup EBS**: usado como backup por meio de snapshots, que criam cópias seguras dos dados armazenados nos volumes EBS;
     - **RDS Multi-AZ**: RDS cria uma instância primária (onde as operações normais de leitura e escrita ocorrem) e uma instância secundária (replicada automaticamente e em standby);
 * Qual o custo da infraestrutura na AWS (AWS Calculator)?
-<imagem>
+![estimativa_migracao](migration_estimate_img.png)
+
+Para conferir as informações mais detalhadas, favor acessar a [estimativa de migração](migration_estimate.pdf).
 
 ## Etapa 2: Modernização/Kubernetes
 * Quais atividades são necessárias para a modernização?
@@ -62,7 +64,7 @@ No diagrama iremos planejar, por um lado, como serão feitas as conexões com o 
     - **Terraform**: O Terraform lê os arquivos `.tf`, gerando um plano de execução e aplicando as mudanças na AWS Cloud.
 
 * Qual o diagrama da infraestrutura na AWS?
-<imagem>
+![diagrama_de_modernizacao](modernizacao.png)
 
 * Como serão garantidos os requisitos de Segurança?
     - **VPC**:servidores não ficam expostos na internet sem necessidade;
@@ -73,7 +75,9 @@ No diagrama iremos planejar, por um lado, como serão feitas as conexões com o 
 * Como será realizado o processo de Backup?
     - **RDS Multi-AZ**: possui backups sem impacto, visto que os backups automáticos ocorrem em instância secundária, reduzindo o impacto no desempenho do banco de dados primário (zona de disponibilidade diferente).
 * Qual o custo da infraestrutura na AWS (AWS Calculator)?
-<imagem>
+![estimativa_modernizacao](modernization_estimate_img.png)
+
+Para conferir as informações mais detalhadas, favor acessar a [estimativa de modernização](modernization_estimate.pdf).
 
 ## Conclusão
 
